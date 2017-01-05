@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import {}
 @Component({
     selector: 'notes',
     templateUrl: './app/containers/notes.component.html',
