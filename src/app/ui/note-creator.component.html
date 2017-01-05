@@ -1,0 +1,36 @@
+<div class="note-creator shadow-2">
+    <form class="row" (submit)="onCreateNote()" (cancel)="onCancelNote()">
+        <input
+            type="text"
+            *ngIf="expandedForm"
+            [(ngModel)]="newNote.title"
+            name="newNoteTitle"
+            placeholder="Title"
+            class="col-xs-10 title"
+        >
+        <input
+            type="text"
+            [(ngModel)]="newNote.value"
+            (focus)="expandForm(true)"
+            name="newNoteValue"
+            placeholder="Take a note..."
+            class="col-xs-10"
+        >
+        <div class="actions col-xs-12 row between-xs">
+            <button
+                type="submit"
+                class="btn-light"
+                *ngIf="expandedForm"
+            >
+            Done
+            </button>
+            <button
+                type="cancel"
+                class="btn-light"
+                *ngIf="expandedForm"
+            >
+            Cancel
+            </button>
+        </div>
+    </form>
+</div>
