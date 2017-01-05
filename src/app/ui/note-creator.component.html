@@ -1,5 +1,5 @@
 <div class="note-creator shadow-2">
-    <form class="row" (submit)="onCreateNote()" (cancel)="onCancelNote()">
+    <form class="row" (submit)="onCreateNote()" (reset)="onCancelNote()">
         <input
             type="text"
             *ngIf="expandedForm"
@@ -16,18 +16,20 @@
             placeholder="Take a note..."
             class="col-xs-10"
         >
-        <div class="actions col-xs-12 row between-xs">
+        <div class="actions col-xs-12 row between-xs" *ngIf="expandedForm">
             <button
                 type="submit"
                 class="btn-light"
-                *ngIf="expandedForm"
             >
             Done
             </button>
+            <color-selector 
+                [colors]="colors"
+            >
+            </color-selector>
             <button
-                type="cancel"
+                type="reset"
                 class="btn-light"
-                *ngIf="expandedForm"
             >
             Cancel
             </button>

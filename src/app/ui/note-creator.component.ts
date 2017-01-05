@@ -6,17 +6,27 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
     styleUrls: ['./app/ui/note-creator.component.css']
 })
 export class NoteCreatorComponent implements OnInit {
+    
     @Output() noteCreated = new EventEmitter;
-    newNote = {};
+
+    newNote: {
+        title: string,
+        value: string,
+        color: string
+    };
+    
+    ColorSelector: boolean = false;
     expandedForm: boolean;    
+    
+    colors = ['lightblue', 'red', 'yellow', 'black', 'white', 'lightgreen'];
 
     onCreateNote() {
-        //const { title, value, color } = this.newNote;
-        //if (title & value) {
-        console.log(this.newNote);
-        this.noteCreated.next(this.newNote);  
-        this.reset(); 
-        //}
+        console.log('Creating Note:', this.newNote);
+
+        if (this.newNote.title && this.newNote.value) {
+            this.noteCreated.next(this.newNote);  
+            this.reset(); 
+        }
     }    
 
     onCancelNote() {
@@ -28,10 +38,15 @@ export class NoteCreatorComponent implements OnInit {
         this.newNote = {
             title: '',
             value: '',
-            color: 'blue'
+            color: 'lightblue'
         };        
         this.expandedForm = false;
     }
+
+    showColorSelector(value: boolean) {
+        this.showColorSelector = value;
+    }
+
     expandForm(value: boolean) {
         this.expandedForm = value;
     }
