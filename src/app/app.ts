@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
         </main-container>
     `
 })
-export class App {}
+export class App {
+    constructor() {}
+}

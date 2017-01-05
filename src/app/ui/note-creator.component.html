@@ -6,32 +6,27 @@
             [(ngModel)]="newNote.title"
             name="newNoteTitle"
             placeholder="Title"
-            class="col-xs-10 title"
-        >
+            class="col-xs-10 title">
         <input
             type="text"
             [(ngModel)]="newNote.value"
             (focus)="expandForm(true)"
             name="newNoteValue"
             placeholder="Take a note..."
-            class="col-xs-10"
-        >
+            class="col-xs-10">
         <div class="actions col-xs-12 row between-xs" *ngIf="expandedForm">
             <button
                 type="submit"
-                class="btn-light"
-            >
+                class="btn-light">
             Done
             </button>
             <color-selector 
                 [colors]="colors"
-                (colorSelected)="onColorSelected($event)"
-            >
+                (colorSelected)="onColorSelected($event)">
             </color-selector>
             <button
                 type="reset"
-                class="btn-light"
-            >
+                class="btn-light">
             Cancel
             </button>
         </div>
