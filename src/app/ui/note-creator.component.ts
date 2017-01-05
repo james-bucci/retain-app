@@ -7,20 +7,24 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class NoteCreatorComponent implements OnInit {
     @Output() noteCreated = new EventEmitter;
-    newNote = {};
+    newNote: { 
+        title: string; 
+        value: string;
+        color: string;
+    };
     expandedForm: boolean;    
 
     onCreateNote() {
-        //const { title, value, color } = this.newNote;
-        //if (title & value) {
-        console.log(this.newNote);
-        this.noteCreated.next(this.newNote);  
-        this.reset(); 
-        //}
+
+        console.log('Creating Note:', this.newNote);
+        if ( this.newNote.title ) {
+            this.noteCreated.next(this.newNote);  
+            this.reset(); 
+        }
     }    
 
     onCancelNote() {
-        console.log('Canceling Note'); 
+        console.log('Canceling Note Creation'); 
         this.reset(); 
     }  
 
