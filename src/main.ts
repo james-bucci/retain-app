@@ -9,6 +9,7 @@ import { NavbarComponent } from './app/ui/navbar.component';
 import { NotecardComponent } from './app/ui/notecard.component';
 import { NotesComponent } from './app/containers/notes.component';
 import { NoteCreatorComponent } from './app/ui/note-creator.component';
+import { ColorSelectorComponent } from './app/ui/color-selector.component';
 
 @NgModule({
     declarations: [
@@ -17,7 +18,8 @@ import { NoteCreatorComponent } from './app/ui/note-creator.component';
         NavbarComponent,
         NotecardComponent,
         NotesComponent,
-        NoteCreatorComponent
+        NoteCreatorComponent,
+        ColorSelectorComponent
     ],
     imports: [
         BrowserModule,

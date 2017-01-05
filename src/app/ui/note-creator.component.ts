@@ -14,8 +14,7 @@ export class NoteCreatorComponent implements OnInit {
         value: string,
         color: string
     };
-    
-    ColorSelector: boolean = false;
+    backgroundColor : string;
     expandedForm: boolean;        
     colors = ['lightblue', 'red', 'yellow', 'black', 'white', 'lightgreen'];
 
@@ -23,27 +22,25 @@ export class NoteCreatorComponent implements OnInit {
         console.log('Creating Note:', this.newNote);
 
         if (this.newNote.title && this.newNote.value) {
+            this.newNote.color = this.backgroundColor;
             this.noteCreated.next(this.newNote);  
-            this.reset(); 
+            this.resetForm(); 
         }
     }    
 
     onCancelNote() {
         console.log('Canceling Note Creation'); 
-        this.reset(); 
+        this.resetForm(); 
     }  
 
-    reset() {
-        this.newNote = {
-            title: '',
-            value: '',
-            color: 'lightblue'
-        };        
-        this.expandedForm = false;
+    onColorSelected(color: string) {
+        this.backgroundColor = color;
     }
 
-    showColorSelector(value: boolean) {
-        this.showColorSelector = value;
+    resetForm() {
+        this.newNote = { title: '', value: '', color: 'white' };        
+        this.expandedForm = false;
+        this.backgroundColor = 'white';
     }
 
     expandForm(value: boolean) {
@@ -51,7 +48,7 @@ export class NoteCreatorComponent implements OnInit {
     }
 
     constructor() {
-        this.reset();
+        this.resetForm();
      }
 
     ngOnInit() { }

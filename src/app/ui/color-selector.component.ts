@@ -10,14 +10,22 @@ export class ColorSelectorComponent implements OnInit {
     @Input() colors : string[];
     @Output() colorSelected = new EventEmitter;
 
+    _visible : boolean;
+
     constructor() {}
 
-    selectColor(color: string) {
-        console.log('Color Selected:', color);
+    show() {
+        this._visible = true;
+    }
+
+    select(color: string) {
         this.colorSelected.next(color);
+        this._visible = false;
     }
 
     ngOnInit() {
+        this._visible = false;
+
         if (this.colors.length == 0) {
             this.colors = ['lightblue', 'red', 'yellow', 'black', 'white', 'green']
         }
