@@ -3,7 +3,7 @@ import { Http, Headers, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
 
-const apiUrl: string = 'http//localhost:3500'
+const apiUrl: string = 'http://localhost:3500'
 
 @Injectable()
 export class ApiService {
@@ -29,6 +29,7 @@ export class ApiService {
     }
 
     get(path: string) : Observable<any> {
+        console.log('Getting:', path, apiUrl);
         return this.http.get(`${apiUrl}${path}`, this.headers)
             .map(res => this.checkForError(res))
             .catch(err => Observable.throw(err))

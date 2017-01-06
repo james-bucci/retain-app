@@ -8,8 +8,8 @@
             <note-card
                 class="col-xs-4"
                 [note]="note"
-                *ngFor="let note of notes; let noteIndex = index"
-                (completed)="onCompleted(noteIndex)"
+                *ngFor="let note of notes"
+                (completed)="onCompleted($event)"
             >
             </note-card>
         </div>

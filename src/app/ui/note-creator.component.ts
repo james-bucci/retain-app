@@ -20,7 +20,6 @@ export class NoteCreatorComponent implements OnInit {
 
     onCreateNote() {
         console.log('Creating Note:', this.newNote);
-
         if (this.newNote.title && this.newNote.value) {
             this.newNote.color = this.backgroundColor;
             this.noteCreated.next(this.newNote);  
