@@ -8,11 +8,11 @@ import { NotesService } from '../services/notes.service';
 })
 export class NotesComponent implements OnInit {
 
-    notes : {id:number, title:string, value:string, color:string}[] = [];  
+    notes: { id: number, title: string, value: string, color: string }[] = [];
 
-    constructor(private notesService: NotesService) {}
+    constructor(private notesService: NotesService) { }
 
-    ngOnInit() { 
+    ngOnInit() {
         this.notesService.getNotes()
             .subscribe(notes => this.notes = notes.data);
     }

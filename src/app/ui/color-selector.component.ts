@@ -6,13 +6,13 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
     styleUrls: ['./app/ui/color-selector.component.css']
 })
 export class ColorSelectorComponent implements OnInit {
-    
-    @Input() colors : string[];
+
+    @Input() colors: string[];
     @Output() colorSelected = new EventEmitter;
 
-    _visible : boolean;
+    _visible: boolean;
 
-    constructor() {}
+    constructor() { }
 
     show() {
         this._visible = true;
