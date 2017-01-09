@@ -11,9 +11,10 @@ import { NotecardComponent } from './app/ui/notecard.component';
 import { NotesComponent } from './app/containers/notes.component';
 import { NoteCreatorComponent } from './app/ui/note-creator.component';
 import { ColorSelectorComponent } from './app/ui/color-selector.component';
+import { AboutComponent } from './app/ui/about.component';
 
-import { NotesService } from './app/services/notes.service';
-import { ApiService } from './app/services/api.service';
+import { ApiService, NotesService } from './app/services';
+import { AppRoutes } from './app/routes';
 
 @NgModule({
     declarations: [
@@ -23,12 +24,14 @@ import { ApiService } from './app/services/api.service';
         NotecardComponent,
         NotesComponent,
         NoteCreatorComponent,
+        AboutComponent,
         ColorSelectorComponent
     ],
     imports: [
         BrowserModule,
         FormsModule,
-        HttpModule       
+        HttpModule,   
+        AppRoutes
     ],
     providers : [
         ApiService,

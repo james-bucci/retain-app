@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
             <main class="main">
                 <navbar></navbar>
             </main>
-            <notes></notes>
+            <router-outlet></router-outlet>
         </div>
     `
 })
